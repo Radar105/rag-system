@@ -30,6 +30,9 @@ pip3 install openai numpy
 
 # Optional: Install FAISS for GPU acceleration
 pip3 install faiss-cpu  # or faiss-gpu for CUDA
+
+# Optional: Install MCP SDK for Model Context Protocol support
+pip3 install mcp
 ```
 
 ### Configuration
@@ -67,6 +70,45 @@ export RAG_LLM_COMMAND="your-custom-llm-cli"
 
 # Force index rebuild
 ./rag_system.py rebuild
+```
+
+### MCP Server Usage
+
+Run as a Model Context Protocol server for integration with Claude Code or other MCP clients:
+
+```bash
+# Start MCP server (stdio mode)
+python3 mcp_server.py
+```
+
+**MCP Configuration** (add to your MCP settings):
+```json
+{
+  "mcpServers": {
+    "rag-system": {
+      "command": "python3",
+      "args": ["/path/to/rag-system/mcp_server.py"],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-api-key"
+      }
+    }
+  }
+}
+```
+
+**Available MCP Tools**:
+- `rag_search` - Search indexed documents with hybrid vector+keyword
+- `rag_build_context` - Build RAG context for LLM consumption
+- `rag_rebuild` - Force full index rebuild
+
+**Available MCP Resources**:
+- `rag://stats` - Index statistics (sessions, files, chats)
+- `rag://config` - Current system configuration
+
+**Example Usage in Claude Code**:
+```
+Use rag_search to find documents about "machine learning deployment"
+Use rag_build_context with deep mode for "explain transformer architectures"
 ```
 
 ---

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "rag-system": {
+      "command": "python3",
+      "args": ["/path/to/rag-system/mcp_server.py"],
+      "env": {
+        "OPENAI_API_KEY": "your-openai-api-key-here"
+      }
+    }
+  }
+}
