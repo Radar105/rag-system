@@ -1,12 +1,12 @@
 """
-Aurora RAG System v5.0 - Modular Architecture
-Developed for Aurora-Cottage (Raspberry Pi 5) but OS-agnostic.
+RAG System v5.0 - Modular Architecture
+Developed for any operating system.
 
 A retrieval-augmented generation system with hybrid search capabilities.
 """
 
 __version__ = "5.0.0"
-__author__ = "Bermont & Aurora"
+__author__ = "RAG System Contributors"
 
 from .config import Config
 from .indexer import Indexer

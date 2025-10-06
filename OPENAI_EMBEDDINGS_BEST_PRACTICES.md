@@ -11,7 +11,7 @@
 
 ## Current RAG v5.0 Implementation
 
-### ✅ What We're Doing Right
+### What We're Doing Right
 1. **Lazy embedding generation** - Only embed when content changes
 2. **Cost tracking** - Monitor token usage and costs
 3. **FAISS acceleration** - Fast similarity search with graceful NumPy fallback
@@ -19,7 +19,7 @@
 5. **Metadata enrichment** - Dates, entities, keyphrases extracted
 6. **Rate limiting** - 3000 RPM (within Tier 3 limits)
 
-### ⚠️ Areas for Improvement (From OpenAI Docs)
+### NOTE: Areas for Improvement (From OpenAI Docs)
 
 ## Chunking Strategy Recommendations
 
@@ -103,14 +103,14 @@ dimensions = 512  # Instead of 1536
 
 ### Current Implementation
 - **Rate limit**: 3000 RPM (Tier 3)
-- **Delay**: 20ms between requests = 50 req/sec = 3000/min ✅
+- **Delay**: 20ms between requests = 50 req/sec = 3000/min
 - **Batch size**: 50 documents per embedding call
 - **Retry logic**: Exponential backoff (3 retries)
 
 ### OpenAI Recommendations
-- ✅ Batch multiple texts in single API call
-- ✅ Implement exponential backoff on rate limits
-- ✅ Monitor token usage to stay within limits
+- Batch multiple texts in single API call
+- Implement exponential backoff on rate limits
+- Monitor token usage to stay within limits
 
 ## Cost Optimization
 
@@ -124,9 +124,9 @@ Cost per document: ~$0.000013
 
 ### Optimization Strategies
 1. **Chunk wisely** - Smaller chunks = more embeddings = higher cost
-2. **Cache aggressively** - Don't re-embed unchanged content ✅
+2. **Cache aggressively** - Don't re-embed unchanged content
 3. **Consider dimension reduction** - 67% storage savings
-4. **Batch requests** - Reduce API overhead ✅
+4. **Batch requests** - Reduce API overhead
 
 ## Recommended Changes for RAG v5.0
 

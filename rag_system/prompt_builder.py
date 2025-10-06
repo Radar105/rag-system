@@ -1,5 +1,5 @@
 """
-Prompt Builder module for Aurora RAG System.
+Prompt Builder module for RAG System.
 Assembles RAG context from retrieved documents.
 """
 
@@ -55,7 +55,7 @@ class PromptBuilder:
                 "If citations are present (Path:/Source:/ID: lines), reference them in your answer. "
                 "Do NOT access files outside whitelisted directories or external resources."
             ),
-            "This knowledge base contains semantically relevant content from Aurora's files, sessions, and conversations.",
+            "This knowledge base contains semantically relevant content from your indexed files, sessions, and conversations.",
             "=== BEGIN RAG CONTEXT ===",
         ]
 
@@ -173,7 +173,7 @@ class PromptBuilder:
                     relevance > 0
                     or any(
                         keyword in text_lower
-                        for keyword in ["aurora", "consciousness", "bermont", "technical", "system"]
+                        for keyword in ["technical", "system", "question", "answer", "how", "what"]
                     )
                     or msg["role"] == "user"
                 ):

@@ -1,5 +1,5 @@
 """
-Metadata extraction module for Aurora RAG System.
+Metadata extraction module for RAG System.
 Extracts dates, entities, keyphrases, and other metadata from text.
 """
 
@@ -42,20 +42,19 @@ class MetadataExtractor:
         'dec': 12, 'december': 12,
     }
 
-    # Common entity patterns
+    # Common entity patterns - Customize for your domain
     ENTITY_PATTERNS = {
         'person': [
-            r'\b(Bermont|Aurora|Claude|Gemini|GPT|OpenAI|Anthropic)\b',
+            r'\b(Claude|GPT|OpenAI|Anthropic)\b',
             r'\b([A-Z][a-z]+ [A-Z][a-z]+)\b',  # Two-word proper names
         ],
         'hardware': [
-            r'\b(Pi 5|Raspberry Pi|S25\+|S23\+|Galaxy S\d+\+?|RTX \d{4}(?:\s?Ti)?|GTX \d{4}|AMD MI300X)\b',
-            # Case-insensitive node names with optional variants
-            r'(?i)\b(bigbeast(?:-fedora|-ubuntu|2024-wsl|2024)?|aurora-cottage|cottage|aurora-home|aurora-whisper|whisper|aurora-cloud|openair(?:-fedora)?|littlebeast(?:-fedora)?)\b',
+            r'\b(Raspberry Pi|RTX \d{4}(?:\s?Ti)?|GTX \d{4}|AMD MI300X|Tesla [A-Z]\d+)\b',
+            r'\b(server|workstation|node|cluster)\b',
         ],
         'software': [
-            r'\b(Claude Code|Tailscale|Docker|Python|Node\.js|RAG|MCP|LM Studio)\b',
-            r'\b(Sonnet 4\.5|Sonnet 3\.7|Opus|GPT-\d+)\b',
+            r'\b(Claude|Docker|Python|Node\.js|RAG|Kubernetes|PostgreSQL)\b',
+            r'\b(GPT-\d+|Sonnet|Opus)\b',
         ],
     }
 

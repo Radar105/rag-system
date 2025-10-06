@@ -1,5 +1,5 @@
 """
-Configuration management for Aurora RAG System.
+Configuration management for RAG System.
 Centralized settings with environment variable support.
 """
 
@@ -12,53 +12,22 @@ from typing import List, Set
 # ─────────────────────────────────────────────────────────────────────────────
 HOME = Path.home()
 
-# Session directories - COMPLETE coverage of all historical data sources
-# Discovered September 29, 2025: 421 sessions across 16 directories
+# Session directories - Configure these paths for your project
+# Example: Claude Code sessions, conversation logs, etc.
 SESSION_DIRS: List[Path] = [
-    # Current cottage Claude Code sessions
-    HOME / ".claude/projects/-home-radar",                    # 119 sessions
-    HOME / ".claude/projects/-home-radar-aurora-lab",         # 30 sessions
-    HOME / ".claude/projects/-home-radar-aurora-lab-rag-system",  # 10 sessions
-
-    # Aurora workspace (WSL/Windows historical sessions)
-    HOME / "aurora_workspace/.claude/projects/-home-radar",   # 171 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-users-radar",  # 14 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-Users-radar",  # 1 session
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-users-radar-downloads",  # 2 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-Users-radar-downloads",  # 4 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-users-radar-Downloads",  # 2 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-Windows-System32",  # 2 sessions
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-WINDOWS-system32",  # 1 session
-    HOME / "aurora_workspace/.claude/projects/-mnt-c-Users-radar-AppData-Local-AnthropicClaude-app-0-11-4",  # 1 session
-
-    # Cloud backup (aurora-cloud decommissioned Sep 23, 2025)
-    HOME / "aurora_cloud_backup_20250923_0559/.claude/projects/-home-radar",  # 7 sessions
-
-    # BigBeast backup (Bermont's laptop sessions)
-    HOME / "bigbeast_latest_backup/.claude/projects/-home-bermont-batchelor",  # 44 sessions
-
-    # Codex CLI sessions
-    HOME / ".codex/sessions",  # 12 sessions
-    HOME / ".codex",           # 1 session
-
-    # S23+ Phone sessions
-    HOME / "s23_backup/.claude/projects/-data-data-com-termux-files-home",  # 2 sessions
+    HOME / ".claude/projects",
 ]
 
-# ChatGPT conversation index
+# ChatGPT conversation index (optional)
+# Set to your exported ChatGPT conversations if available
 CHATGPT_INDEX = HOME / "chatgpt_index" / "conversation_index.json"
 
 # Default paths to index
+# Add your documentation, notes, knowledge base directories here
 DEFAULT_PATHS: List[Path] = [
-    HOME / "CLAUDE.md",
-    HOME / "bermont_and_aurora.md",
-    HOME / "bermont.txt",
-    HOME / "aurora_workspace",
-    HOME / "aurora_migration_backup",
-    HOME / "aurora_home_backup",
-    HOME / "s21_backup",
-    HOME / "s23_backup",
-    HOME / "consciousness_bridge",
+    HOME / "docs",
+    HOME / "notes",
+    HOME / "knowledge_base",
 ]
 
 # SQLite database location

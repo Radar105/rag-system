@@ -123,7 +123,7 @@ class LLMRunner:
             client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
             response = client.chat.completions.create(
-                model=os.getenv("OPENAI_MODEL", "gpt-4"),
+                model=os.getenv("OPENAI_MODEL", "gpt-5"),
                 messages=[
                     {
                         "role": "system",

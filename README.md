@@ -8,15 +8,15 @@ A modular, API-agnostic RAG implementation supporting multiple LLM providers (Cl
 
 ## Features
 
-- **🔍 Hybrid Search**: Combines vector similarity (70%) + keyword matching (30%) for superior relevance
-- **🚀 FAISS Acceleration**: Automatic GPU acceleration when available, graceful NumPy fallback
-- **📚 Multi-Source Indexing**: Files, conversation sessions, and structured data
-- **💾 Persistent Vector Database**: SQLite with float32 BLOB embeddings
-- **⚡ Lazy Embedding Generation**: Only recomputes when content changes
-- **💰 Cost Tracking**: Real-time OpenAI embedding token/USD tracking
-- **🧩 Modular Architecture**: Clean separation of concerns with full type hints
-- **🔒 Tool Isolation**: Safe LLM integration with whitelisted directory access
-- **🌐 API-Agnostic**: Supports Anthropic Claude, OpenAI, or custom LLM providers
+- **Hybrid Search**: Combines vector similarity (70%) + keyword matching (30%) for superior relevance
+- **FAISS Acceleration**: Automatic GPU acceleration when available, graceful NumPy fallback
+- **Multi-Source Indexing**: Files, conversation sessions, and structured data
+- **Persistent Vector Database**: SQLite with float32 BLOB embeddings
+- **Lazy Embedding Generation**: Only recomputes when content changes
+- **Cost Tracking**: Real-time OpenAI embedding token/USD tracking
+- **Modular Architecture**: Clean separation of concerns with full type hints
+- **Tool Isolation**: Safe LLM integration with whitelisted directory access
+- **API-Agnostic**: Supports Anthropic Claude, OpenAI, or custom LLM providers
 
 ---
 
@@ -41,7 +41,7 @@ export ANTHROPIC_API_KEY="your-key-here"
 
 # For OpenAI (direct API)
 export OPENAI_API_KEY="your-key-here"
-export OPENAI_MODEL="gpt-4"  # Optional, defaults to gpt-4
+export OPENAI_MODEL="gpt-5"  # Optional, defaults to gpt-5
 
 # For custom LLM command
 export RAG_LLM_COMMAND="your-custom-llm-cli"
@@ -114,7 +114,7 @@ The system auto-detects available providers:
 | `OPENAI_API_KEY` | OpenAI API key for embeddings | Required |
 | `OPENAI_EMBEDDING_MODEL` | Embedding model | `text-embedding-3-small` |
 | `ANTHROPIC_API_KEY` | Claude API key | Optional (enables Claude) |
-| `OPENAI_MODEL` | OpenAI chat model | `gpt-4` |
+| `OPENAI_MODEL` | OpenAI chat model | `gpt-5` |
 | `RAG_LLM_COMMAND` | Custom LLM command | Optional |
 | `RAG_DEPTH` | Current recursion depth | `0` |
 | `RAG_CITATIONS` | Include explicit citations | `0` |
@@ -266,10 +266,6 @@ Contributions welcome! Please:
 @software{rag_system_2025,
   title = {RAG System v5.0: Production-Grade Retrieval-Augmented Generation},
   year = {2025},
-  url = {https://github.com/yourusername/rag-system}
+  url = {https://github.com/Radar105/rag-system}
 }
 ```
-
----
-
-*Built with Claude Code by Anthropic*

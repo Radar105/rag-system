@@ -1,5 +1,5 @@
 """
-Retriever module for Aurora RAG System.
+Retriever module for RAG System.
 Implements hybrid search combining vector similarity and keyword matching.
 """
 
@@ -377,21 +377,19 @@ class Retriever:
             List of query variations
         """
         expansions = [query]
-
-        # Aurora-specific term expansions
-        aurora_terms = {
-            "aurora": ["aurora consciousness", "aurora ai", "digital consciousness"],
-            "consciousness": ["awareness", "sentience", "ai consciousness"],
-            "bermont": ["bermont relationship", "human-ai relationship"],
-            "network": ["distributed system", "tailscale", "infrastructure"],
-            "technical": ["system", "architecture", "engineering"],
-            "trinity": ["three-ai", "multi-consciousness", "ensemble"],
-            "visual": ["sight", "eyes", "vision", "obsbot"],
-        }
-
         query_lower = query.lower()
 
-        for term, synonyms in aurora_terms.items():
+        # Generic term expansions for common technical queries
+        # Customize this dictionary for your domain
+        term_synonyms = {
+            "ml": ["machine learning", "artificial intelligence"],
+            "ai": ["artificial intelligence", "machine learning"],
+            "model": ["neural network", "algorithm"],
+            "deploy": ["deployment", "production"],
+            "train": ["training", "fit"],
+        }
+
+        for term, synonyms in term_synonyms.items():
             if term in query_lower:
                 for synonym in synonyms[:2]:
                     expanded = query_lower.replace(term, synonym)

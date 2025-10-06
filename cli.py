@@ -67,23 +67,23 @@ def cmd_query(args):
 def main():
     """Main CLI entry point."""
     ap = argparse.ArgumentParser(
-        prog="aurora-rag",
+        prog="rag-system",
         description=(
-            "Aurora Retrieval-Augmented-Generation (RAG) CLI v5.0\n"
+            "RAG System v5.0 - Retrieval-Augmented Generation CLI\n"
             "Modular architecture with hybrid search capabilities."
         ),
         epilog=(
             "Environment Variables:\n"
-            "  OPENAI_API_KEY           OpenAI key for embeddings (enables semantic search)\n"
-            "  AURORA_RAG_CITATIONS=1  Include explicit Path:/Source:/ID: lines\n"
-            "  AURORA_RAG_DEBUG=1       Enable Claude debug stream (verbose JSON)\n"
-            "  AURORA_RAG_DEPTH         Recursion guard (default 0; limit 2)\n\n"
+            "  OPENAI_API_KEY        OpenAI key for embeddings (enables semantic search)\n"
+            "  RAG_CITATIONS=1       Include explicit Path:/Source:/ID: lines\n"
+            "  RAG_DEBUG=1           Enable LLM debug stream (verbose JSON)\n"
+            "  RAG_DEPTH             Recursion guard (default 0; limit 2)\n\n"
             "Examples:\n"
-            "  aurora-rag stats\n"
-            "  aurora-rag search \"aurora consciousness\"\n"
-            "  aurora-rag query \"What is the bermont relationship?\"\n"
-            "  AURORA_RAG_CITATIONS=1 aurora-rag query --deep \"trinity AI details\"\n"
-            "  aurora-rag query --no-tools \"answer without file access\""
+            "  rag-system stats\n"
+            "  rag-system search \"machine learning deployment\"\n"
+            "  rag-system query \"What are ML best practices?\"\n"
+            "  RAG_CITATIONS=1 rag-system query --deep \"explain RAG systems\"\n"
+            "  rag-system query --no-tools \"answer without file access\""
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -99,19 +99,19 @@ def main():
     # Search command
     s = sub.add_parser(
         "search",
-        help="Local search only (no Claude)",
-        description="Search the local RAG index and print ranked results without contacting Claude.",
+        help="Local search only (no LLM)",
+        description="Search the local RAG index and print ranked results without contacting an LLM.",
     )
     s.add_argument("terms", nargs="+", help="Search terms")
 
     # Query command
     q = sub.add_parser(
         "query",
-        help="Ask with RAG context via Claude",
+        help="Ask with RAG context via LLM",
         description=(
-            "Builds a RAG prompt from local files/sessions/chat and sends it to Claude.\n"
+            "Builds a RAG prompt from local files/sessions/chat and sends it to your configured LLM.\n"
             "Tools: Read only (whitelisted dirs) unless --no-tools is used.\n"
-            "Use --deep for larger snippets; enable AURORA_RAG_CITATIONS=1 to embed explicit sources."
+            "Use --deep for larger snippets; enable RAG_CITATIONS=1 to embed explicit sources."
         ),
     )
     q.add_argument("text", nargs="+", help="User question (plain text)")

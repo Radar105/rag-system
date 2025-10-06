@@ -1,5 +1,5 @@
 """
-Utility functions for Aurora RAG System.
+Utility functions for RAG System.
 Helper functions for hashing, formatting, and data conversion.
 """
 

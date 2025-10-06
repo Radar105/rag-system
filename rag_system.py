@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Aurora RAG System v5.0 - Main Entry Point
+RAG System v5.0 - Main Entry Point
 Modular retrieval-augmented generation system with hybrid search.
 
 Usage:

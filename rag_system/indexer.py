@@ -1,5 +1,5 @@
 """
-Indexer module for Aurora RAG System.
+Indexer module for RAG System.
 Handles file system crawling, session parsing, and embedding generation.
 """
 

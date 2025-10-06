@@ -1,5 +1,5 @@
 """
-Chunking module for Aurora RAG System.
+Chunking module for RAG System.
 Implements semantic chunking with overlap and dialogue turn preservation.
 """
 
